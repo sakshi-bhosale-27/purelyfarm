@@ -86,39 +86,52 @@ Widget build(BuildContext context) {
   );
 }
 
-  Widget _buildHeader() {
-     //bool isVerified = true; // Change to false for testing "Pending" badge
+ Widget _buildHeader() {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween, // Ensures spacing
     children: [
-      CircleAvatar(
-        radius: 30,
-        backgroundColor: Colors.white,
-        child: Icon(Icons.store, color: Color.fromARGB(255, 33, 82, 243), size: 30),
-      ),
-      SizedBox(width: 10),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      Row( // Wrap existing widgets in a row
         children: [
-          Text(
-            'Tech Supplies Co.',
-            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          CircleAvatar(
+            radius: 30,
+            backgroundColor: Colors.white,
+            child: Icon(Icons.store, color: Color.fromARGB(255, 33, 82, 243), size: 30),
           ),
-          SizedBox(height: 4),
-          Row(
+          SizedBox(width: 10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Electronics Store',
-                style: TextStyle(fontSize: 14, color: Colors.white),
+                'Tech Supplies Co.',
+                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              SizedBox(width: 8),
-              _buildStatusBadge(true), // Pass 'false' for Pending
+              SizedBox(height: 4),
+              Row(
+                children: [
+                  Text(
+                    'Electronics Store',
+                    style: TextStyle(fontSize: 14, color: Colors.white),
+                  ),
+                  SizedBox(width: 8),
+                  _buildStatusBadge(true), // Pass 'false' for Pending
+                ],
+              ),
             ],
           ),
         ],
-      )
+      ),
+      SizedBox(width:60),
+      IconButton( // Menu Icon
+        icon: Icon(Icons.more_vert, color: Colors.white),
+        onPressed: () {
+          // TODO: Handle menu click
+          print("Menu Clicked");
+        },
+      ),
     ],
   );
 }
+
 
 Widget _buildStatusBadge(bool isVerified) {
   return Container(
