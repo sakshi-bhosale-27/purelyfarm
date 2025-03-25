@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:purelyfarm/Sales_Profile.dart';
 
+import 'Analytics_Page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -111,7 +113,10 @@ class ProfileScreen extends StatelessWidget {
                  
 
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                           Navigator.push(context,MaterialPageRoute(builder: (context) => SalesAnalyticsScreen(),));
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
